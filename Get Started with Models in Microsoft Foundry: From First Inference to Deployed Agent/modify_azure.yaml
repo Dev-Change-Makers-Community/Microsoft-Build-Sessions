@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: get-started-foundry-models
+
+metadata:
+  template: get-started-foundry-models@0.1.0
+
+services:
+  zava-review-moderation-agent:
+    project: src/agent
+    host: azure.ai.agent
+    language: docker
+
+    docker:
+      remoteBuild: true
+
+    config:
+      container:
+        resources:
+          cpu: "0.5"
+          memory: 1Gi
+
+      startupCommand: python app.py
+
+infra:
+  provider: bicep
+  path: infra
+
+hooks:
+  postprovision:
+    windows:
+      name: postprovision
+      kind: pwsh
+      shell: pwsh
+      run: ./scripts/postprovision.ps1
+
+    posix:
+      shell: sh
+      run: ./scripts/postprovision.sh
