@@ -1,9 +1,13 @@
-First of all sign into https://github.com/enterprises/skillable-events/sso
+
+# Follow these instructions
+Note: Clone the main repo: https://github.com/microsoft/Build26-LAB501-from-zero-to-deployed-on-azure-with-ai-agents.git
+
+First of all, sign in to https://github.com/enterprises/skillable-events/sso
 using the Username and Password provided in the lab. 
 
 ![Alt Text](pictures/Login_to_GitHub.png)
 
-Then go to terminal and log into the Azure account
+Then go to the terminal and log in to the Azure account
 
 ```
 az login
@@ -30,24 +34,24 @@ Then log in
 /login
 ```
 
-When prompted what account do you want to log into, select GitHub.com. Copilot will prompt you to enter any key to open a browser to complete login. Follow the instructions in Copilot to complete authorization using the signed-in account.
+When prompted, select 'GitHub.com' to log into the account. Copilot will prompt you to enter any key to open a browser to complete the login. Follow the instructions in Copilot to complete authorization using the signed-in account.
 
 ![Alt Text](pictures/login_to_Copilot.png)
 
 
 ### Disable Rubberduck Agent (not needed here)
 
-Use the following prompt in copilot to disable rubberduck agent in Copilot CLI as it's not needed for the lab session:
+Use the following prompt in Copilot to disable the Rubberduck agent in Copilot CLI, as it's not needed for the lab session:
 
 Say to Copilot
- Update the settings.json for Copilot CLI to disable rubber duck with this, "builtInAgents": {"rubberDuck": false},
+ Update the settings.json for Copilot CLI to disable rubber duck with this: "builtInAgents": {"rubberDuck": false},
 
 ![Alt Text](pictures/Disable_rubberduck.png)
 
 Then say "Yes" to confirm the change.
 
 ![Alt Text](pictures/Yes_to_confirm.png)
-Once done, the agent will be disabled and you will see the following message:
+Once done, the agent will be disabled, and you will see the following message:
 
 ![Alt Text](pictures/Disable_rubberduck.png)
 
@@ -95,9 +99,9 @@ git commit -m "init"
 
 ![Alt Text](pictures/git_info.png)
 
-# Shipt it and Harden it
+# Ship it and Harden it
 
-If you're not already in the lego-set-browser directory, cd into it, then use the prompt below to start a Copilot session in yolo mode.
+If you're not already in the LEGO-set-browser directory, cd into it, then use the prompt below to start a Copilot session in yolo mode.
 
 ```
 copilot --yolo
@@ -142,7 +146,7 @@ azure-deploy activates last
 
 ## Harden it
 
-Review the generated Bicep files in your infra/ directory. Depending on how azure-prepare ran, it may have already applied some security hardening during generation. Your job is to audit what the AI did and didn't do.
+Review the generated Bicep files in your infra/ directory. Depending on how Azure-Prepare ran, it may have already applied some security hardening during generation. Your job is to audit what the AI did and didn't do.
 
 Paste the following prompt in Copilot:
 
@@ -200,7 +204,7 @@ Query the Log Analytics workspace for my Container App. Show me what happened du
 
 ### Operationalize It
 
-Say this to copilot 
+Say this to Copilot 
 
 ```
 Create a KQL alert rule that fires when ProbeFailed events appear in the Container App system logs.
@@ -233,7 +237,7 @@ Ask the copilot to share the COSMOS_ENDPOINT from the Azure portal.
 ![Alt Text](pictures/Deploy_app.png)
 ![Alt Text](pictures/Running_app.png)
 
-Then instruct the copilot to populate the app with lego data
+Then instruct the copilot to populate the app with LEGO data
 as there were 0 total themse and sets
 
 ![Alt Text](pictures/populated.png)
